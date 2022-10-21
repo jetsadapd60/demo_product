@@ -1,0 +1,21 @@
+.pin {
+
+    &__head {
+        color: #363E59;
+        font-size: 32px;
+    }
+
+    &__title {
+        color: #888EA5;
+        font-size: 20px;
+    }
+
+}
+
+.btn-primary {
+    background: #134A89 !important;
+
+    &:hover {
+        background: #074489 !important;
+    }
+}

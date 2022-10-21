@@ -1,0 +1,97 @@
+<div class="form-normal">
+
+    <div class="container">
+
+        <div class="row overflow-hidden justify-content-between" style="padding-top: 3.4rem;">
+
+            <div class="col-12 col-md-8 offset-md-2 mb-2">
+
+                <h1 class="fs-1 form-normal__text-header" style="color: #363E59; font-size: 32px;">สร้างบัญชี</h1>
+                <p class="form-normal__text-title">โดยการเปิดบัญชีนิติบุคคล คุณต้องกรอกรายละเอียด ตาม ข้อมูลด้านล่างนี้ เพื่อเปิดบัญชีการซื้อ-ขาย โดยที่เราจะติดต่อ กลับหาคุณให้เร็วที่สุด</p>
+
+            </div>
+
+            <div class="col-12 col-md-8 offset-md-2">
+
+                <form (ngSubmit)="saveValue()" class="form" [formGroup]="accountCorporateForm">
+
+                    <div class="form__group">
+                        <label for="" class="text-color">ชื่อบริษัท-ชื่อร้าน</label>
+                        <div class="form__input-wrap mb-1 border" id="password-wrap">
+                            <input type="text" class="form__control " formControlName="companyName" placeholder="ชื่อบริษัท-ชื่อร้าน">
+                        </div>
+                        <div class="form__validators text-danger">
+                            <small *ngIf="companyName.hasError('required') && (companyName.dirty && companyName.invalid)">กรุณากรอก ชื่อบริษัท-ชื่อร้าน</small>
+                        </div>
+                    </div> 
+
+                    <div class="form__group">
+                        <label for="" class="text-color">ประเภทกิจการ</label>
+                        <div class="form__input-wrap border" id="password-wrap">
+                            <select name="" id="type-bussiness" class="w-100 form__control" formControlName="cK_SyCPTy_Company">
+                                <option value="" selected>- เลือก -</option>
+                                <option *ngFor="let conpanyType of conpanyTypes.companyTypes$ | async" [value]="conpanyType.pK_SyCPTy">{{ conpanyType.name }}</option>
+                            </select>
+                        </div>
+                        <div class="form__validators text-danger" *ngIf="companyType.hasError('required') && (companyType.dirty && companyType.invalid)">
+                            <small>กรุณาเลือก ประเภทกิจการ</small>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="" class="text-color">ชื่อผู้ติดต่อ</label>
+                        <div class="form__input-wrap border mb-1" id="password-wrap">
+                            <input type="text" class="form__control" placeholder="ชื่อผู้ติดต่อ" formControlName="companyContactName">
+                        </div>
+                        <div class="form__validators text-danger" *ngIf="contactName.hasError('required') && (contactName.dirty && contactName.invalid)">
+                            <small>กรุณากรอก ชื่อผู้ติดต่อ</small>
+                        </div>
+                    </div>
+
+                    <div class="form__group mb-3">
+                        <label for="" class="text-color">เบอร์มือถือ</label>
+                        <div class="form__input-wrap mb-1 px-2 border" id="mobile-wrap">
+                            <img src="../../../../assets/images/flag_thai.svg" alt="">
+                            <select name="" id="">
+                                <option value="">+66</option>
+                            </select>
+                            <input type="text" class="form__control" placeholder="เบอร์มือถือ" formControlName="companyPhoneNumber">
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle text-color me-2" style="font-size: 10px;"></i>
+                            <p class="m-0 text-color" style="font-size: 10px;">คุณจะได้รับ OTP ผ่านเบอร์มือถือนี้</p>
+                        </div>
+                        <div class="form__validators text-danger" *ngIf="phoneNumber.hasError('required') && (phoneNumber.dirty && phoneNumber.invalid)">
+                            <small>กรุณากรอก เบอร์มือถือ</small>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="" class="text-color">อีเมล์</label>
+                        <div class="form__input-wrap border mb-1" id="password-wrap">
+                            <input type="email" class="form__control" placeholder="อีเมล์" formControlName="companyEmail">
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle text-color me-2" style="font-size: 10px;"></i>
+                            <p class="m-0 text-color" style="font-size: 10px;">อีเมลนี้จะเป็นชื่อผู้ใช้ของคุณ และคุณจะได้รับ OTP ผ่านอีเมลนี้.</p>
+                        </div>
+                        <div class="form__validators text-danger"> <!-- ข้อความเตือนข้อผิดพลาด -->
+                            <p class="m-0" *ngIf="companyEmail.hasError('required') && (companyEmail.dirty && companyEmail.invalid)">กรุณากรอกอีเมล์ </p>
+                            <p class="m-0" *ngIf="companyEmail.hasError('pattern') && (companyEmail.dirty && companyEmail.invalid)">รูปแบบอีเมล์ไม่ถูกต้อง </p>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <!--  routerLink="/auth/create-account-corporate" -->
+                        <button class="btn btn-block btn-primary btn-lg  border-0"  [disabled]="accountCorporateForm.invalid">ถัดไป</button>
+                    </div>
+                    
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,48 @@
+@import "../../../../../assets/scss/responesive";
+
+.row {
+
+    @include responesive(md) {
+
+    }
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 1rem;
+
+    column-gap: 1rem;
+
+    @include responesive(md) {
+        flex-direction: column;
+        width: 100%;
+        height: 200px;
+    }
+
+
+
+
+    &:first-child {
+        // margin-bottom: 1rem;
+
+        @include responesive(md) {
+            // margin-bottom: 0rem;
+        }
+    }
+}
+
+.box:hover {
+    cursor: pointer;
+}
+

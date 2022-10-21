@@ -1,0 +1,26 @@
+<div class="camera">
+    <div class="container">
+        <div class="row align-items-center justify-content-center vh-100">
+            <div class="col-md-8 text-center">
+                <div class="camera__capture">
+
+
+                    <!-- <webcam (imageCapture)="handleImage($event)"></webcam> -->
+                    <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+                    [videoOptions]="videoOptions"
+                    [imageQuality]="1"
+                    (initError)="handleInitError($event)"></webcam>
+
+                    <div class="overay">
+                        <div class="overay__face"></div>
+                        <div class="overay__circle"></div>
+                        <div class="overay__bar-code"></div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" [disabled]="!buttonStatus" (click)="triggerSnapshot();">กด ถ่ายรูปบัตร</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

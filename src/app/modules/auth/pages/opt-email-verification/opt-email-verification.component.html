@@ -1,0 +1,60 @@
+<div class="otp-verification">
+    
+    <div class="container" style="padding-top: 7rem;">
+
+        <div class="row">
+
+            <div class="col-md-8 col-lg-6 offset-md-2 justify-content-center d-flex">
+                <div class="otp-verification__mail-icon">
+                    <img src="../../../../assets/images/mail.svg" alt="">
+                </div>
+            </div>
+
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <p class="otp-verification__text-header">OTP {{ otpType === 'SMS' ? 'ยืนยันเบอร์โทรศัพท์มือถือ' : 'ยืนยันอีเมล์' }}</p>
+            </div>
+
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <p class="otp-verification__text-title">กรุณากรอกรหัสเลข 6 หลักที่ส่งไปยังอีเมลของท่าน รหัสนี้มีอายุการใช้งาน 5 นาที</p>
+            </div>
+
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <form [formGroup]="otpForm" class="form d-flex g-4 justify-content-between justify-content-md-between">
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="first" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="second" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="third" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="fourth" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="fifth" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                    <div class="form__group rounded overflow-hidden">
+                        <input formControlName="six" type="text" autocomplete="off"  [ngClass]="{'border-danger': isOtpError, 'border': isOtpError }" id="otpInput" class="form__control rounded" maxlength="1">
+                    </div>
+
+                </form>
+                <small *ngIf="isOtpError" class="mt-2 d-block" [ngClass]="{'text-danger': isOtpError }">ป้อน OTP ไม่ถูกต้อง กรุณาลองอีกครั้ง.</small>
+            </div>
+
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 mt-3">
+                <p class="otp-verification__resend-otp" (click)="onTryAgainOtp()">ไม่ได้รับรหัส?</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

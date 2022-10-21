@@ -1,0 +1,29 @@
+
+
+.contact__item  {
+    & > p {
+        font-family: "PromptThin";
+        font-size: 20px; color: #363E59;
+    }
+}
+
+.contact__right {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

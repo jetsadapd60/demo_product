@@ -1,0 +1,56 @@
+@import "../../../../../assets/scss/color";
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.side {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        padding: 0px 10px;
+        text-decoration: none;
+
+        height: 44px;
+        width: 150px;
+        transition: all .4s;
+
+        &--active {
+            background: #4E73AA;
+            
+            span {
+                color: #ffffff !important;
+            }
+        }
+    }
+
+    &__image {
+        width: 12%;
+        height: auto;
+    }
+
+    &__text {
+        color: $info;
+        font-size: 15px;
+    }
+
+    &__footer {
+        font-size: 10px;
+        color: $light;
+    }
+}

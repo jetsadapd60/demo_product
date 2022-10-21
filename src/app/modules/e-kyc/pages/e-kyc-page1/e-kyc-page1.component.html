@@ -1,0 +1,38 @@
+<div class="verify-identity">
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-10 col-sm-10 col-md-6 mx-auto" style="padding-top: 8rem;">
+                <div class="verify-identity__top">
+                    <div class="verify-identity__text-head">
+                        <h2 style="color: #363E59;">ยืนยันตัวตน</h2>
+                        <small style="color: #888EA5; font-size: 15px;">กรุณาเลือกที่อยู่ปัจจุบันของคุณ</small>
+                    </div>
+                </div>
+
+                <div class="verify-identity__main mt-5">
+                    <form (ngSubmit)="onSaveNationalit()" class="form" [formGroup]="nationalityForm">
+                        <div class="form__control d-flex flex-column">
+                            <label for="" class="form__label" style="color: #888EA5; font-size: 12px;">สัญชาติ</label>
+                            <select name="" id="" class="form-select p-2" formControlName="cK_SyCo_PersonNationality" style="outline: none;">
+                                <option value="">- เลือก -</option>
+                                <option style="outline: none;" value="{{item.pK_SyCo}}" *ngFor="let item of nationalitys">{{ item.ct_nameTHA }}</option>
+                            </select>
+                            <p class="mt-5" style="color: #888EA5; font-size: 15px;">ขั้นตอนการสร้างบัญชีอาจเปลี่ยนแปลงไปตามข้อมูลที่คุณเลือก</p>
+                        </div>
+
+                        <div class="form__btn-group mt-5">
+                            <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="nationality.errors">ถัดไป</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

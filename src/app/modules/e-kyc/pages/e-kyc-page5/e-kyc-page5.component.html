@@ -1,0 +1,99 @@
+<div class="personal-information pb-5">
+
+
+    <div class="container">
+
+        <div class="row" style="padding-top: 5rem;"> 
+
+            <div class="col-10 col-sm-10 col-md-6 order-2 order-sm-1 offset-md-1">
+                <div class="personal-information__left">
+                    <h2 class="personal-information__text-head mb-4" style="color: #363E59; font-size: 28px;">แหล่งที่มาของเงินทุน</h2>
+
+                    <form [formGroup]="sourceFundFrom" (ngSubmit)="onSubmitSourceFund()" class="form">
+
+                        <!-- อาชีพ -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">อาชีพ/ประเภทธุรกิจ</label>
+                            <select formControlName="pK_SyJPo" name="" id="" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option> 
+                                <option value="{{ job.pK_SyJPo }}" *ngFor="let job of jobPositions">{{ job.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- ชื่อบริษัท -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">ชื่อบริษัท</label>
+                            <input formControlName="companyName" type="text" class="border p-2 rounded" placeholder="ชื่อ" name="" id="">
+                        </div>
+
+                        <!-- รายได้ต่อเดือน -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">รายได้ต่อเดือน</label>
+                            <select formControlName="incomePerMonth" name="" id="" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option> 
+                                <option value="{{ income.pK_SyMIn }}" *ngFor="let income of incomePerMonth">{{ income.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- รายได้ต่อปี -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">รายได้ต่อปี</label>
+                            <select formControlName="incomePerYear" name="" id="" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option> 
+                                <option value="{{ income.pK_SyMIn }}" *ngFor="let income of incomePerYear">{{ income.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- แหล่งที่มาเงินลงทุน -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">แหล่งที่มาเงินลงทุน</label>
+                            <select formControlName="sourceFund" name="" id="" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option> 
+                                <option [value]="suorceFund.pK_SySFu" *ngFor="let suorceFund of sourceFunds">{{ suorceFund.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- อื่นๆ -->
+                        <div class="form__group mb-3" *ngIf="isSelectOther">
+                            <input formControlName="sourceFundOther" type="text" class="border p-2 w-100 rounded" name="" id="">
+                        </div>
+
+                        <!-- dots -->
+                        <div class="form__group d-flex my-5 justify-content-between mx-auto w-25">
+                            <div class="form__line"></div>
+                            <div class="form__line"></div>
+                            <div class="form__line"></div>
+                            <div class="form__line"></div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn btn-outline-primary btn-lg w-100">กลับ</button>
+                            <!-- routerLink="/verification/scan-id-card" -->
+                            <button class="btn btn-primary btn-lg w-100" [disabled]="sourceFundFrom.errors" type="submit">ดำเนินการต่อ</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 order-1 order-sm-2 pe-md-0">
+                <div class="personal-information__right d-flex justify-content-end">
+                    <div class="progress-bars d-flex align-items-center p-3 shadow rounded">
+                        <div class="progress-bar__left">
+                            <img src="../../../../../assets/images/card-logo.svg" alt="">
+                        </div>
+
+                        <div class="progress-bar__right">
+                            <p class="m-0" style="font-size: 14px; color: #888EA5;">การดำเนินการยืนยันตัวตนทั้งหมดของคุณ</p>
+                            <p class="m-0" style="font-size: 18px; color: #363E59;;">ดำเนินการแล้ว 40%</p>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

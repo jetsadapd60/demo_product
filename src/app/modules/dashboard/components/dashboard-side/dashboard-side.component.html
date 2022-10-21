@@ -1,0 +1,42 @@
+<!-- <ul class="side">
+  <li class="side__item" *ngFor="let menu of menus">
+    <a class="side__link">
+        <img class="side__image" [src]="menu.icon" alt="" />
+        <span class="side__text">{{ menu.label }}</span>
+    </a>
+  </li>
+</ul> -->
+
+<div class="wrap">
+  <ul class="side">
+    <li class="side__item">
+      <a class="side__link" routerLink="/dashboard" routerLinkActive="side__link--active" [routerLinkActiveOptions]="{exact: true}">
+          <img class="side__image" src="../../../../assets/images/store.png" alt="" />
+          <span class="side__text">หน้าหลัก</span>
+      </a>
+    </li>
+    <li class="side__item">
+      <a class="side__link" routerLink="buy-sale" routerLinkActive="side__link--active" [routerLinkActiveOptions]="{exact: true}">
+          <img class="side__image" src="../../../../assets/images/chart-column.png" alt="" />
+          <span class="side__text">ซื้อ-ขาย</span>
+      </a>
+    </li>
+    <li class="side__item">
+      <a class="side__link" routerLink="asset" routerLinkActive="side__link--active" [routerLinkActiveOptions]="{exact: true}">
+          <img class="side__image" src="../../../../assets/images/sack.png" alt="" />
+          <span class="side__text">สินทรัพย์</span>
+      </a>
+    </li>
+    <li class="side__item">
+      <a class="side__link" routerLink="receive-pay" routerLinkActive="side__link--active" [routerLinkActiveOptions]="{exact: true}">
+          <img class="side__image" src="../../../../assets/images/wallet.png" alt="" />
+          <span class="side__text">รับ-จ่ายเงิน</span>
+      </a>
+    </li>
+  </ul>
+  <div></div>
+  <div class="side__footer">
+    <p>ติดต่อเจ้าหน้าที่</p>
+    <p><i class="fas fa-phone-alt"></i> 02-613-0888</p>
+  </div>
+</div>

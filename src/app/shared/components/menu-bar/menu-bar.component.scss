@@ -1,0 +1,115 @@
+@import "./vairable.scss";
+@import "../../../../assets/scss/color";
+@import "../../../../assets/scss/responesive";
+
+:host {
+    display: block;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    padding: 5px 20px;
+    max-width: 1920px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: $top-height;
+
+    &__left {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        column-gap: 15px;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__arrow-left {
+        color: #888EA5;
+        font-size: 22px;
+        display: none;
+
+        @include responesive(sm) {
+            display: block;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__logo {
+        display: none;
+
+        @include responesive(sm) {
+            display: block;
+            width: 8%;
+        }
+
+        @include responesive(lg) {
+            display: block;
+            width: 5%;
+        }
+    }
+
+    &__list {
+        background: #f0f1f6;
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 50px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+
+        &:first-child {
+            display: flex;
+            column-gap: 2px;
+            color: $secondary;
+
+            img {
+                width: 37%;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 12px;
+    }
+
+    &__line:nth-child(2) {
+        width: 1px;
+        height: 20px;
+        background: #888EA5;
+        display: none;
+
+        @include responesive(sm) {
+            display: block;
+        }
+    }
+
+    &__line {
+        width: 1px;
+        height: 25px;
+        background: #e2e4ed;
+    }
+
+    &__icon {
+        width: 60%;
+    }
+
+} 

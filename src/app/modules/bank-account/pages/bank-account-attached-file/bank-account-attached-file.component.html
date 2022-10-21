@@ -1,0 +1,54 @@
+<div class="row">
+  <section class="attached col-md-6 offset-md-3" style="padding-top: 8rem;">
+
+    <section class="mb-4">
+        <div class="top">
+            <h2 style="color: #363E59; font-size: 32px;" class="top__text-header">ข้อมูลบัญชีธนาคาร</h2>
+            <small style="color: #888EA5; font-size: 20px;" class="top__text-title">ธนาคารที่สามารถใช้ได้คือ กสิกรไทย ไทยพาณิชย์ กรุงศรีอยุธยา กรุงเทพ กรุงไทย หรือทหารไทย (บัญชีออมทรัพย์)</small>
+        </div>
+    </section>
+
+    <form class="form" [formGroup]="accountInformationFrom">
+
+        <!-- บัญชีธนาคาร -->
+        <div class="form__group d-flex flex-column mb-3">
+            <label for="" class="form__label">บัญชีธนาคาร</label>
+            <select formControlName="cK_SyBa" [ngClass]="{'border-danger': cK_SyBa.invalid && cK_SyBa.dirty}" class="form__control border p-2 rounded">
+                <option value="">- เลือก -</option>
+                <option [value]="bankName.pK_SyBa" *ngFor="let bankName of bankNames">
+                  {{ bankName.name }}
+                </option>
+            </select>
+        </div>
+
+        <!-- เลขที่บัญชี -->
+        <section>
+          <div class="form__group d-flex flex-column mb-3">
+            <label for="" class="form__label">เลขที่บัญชี</label>
+            <input type="number" [ngClass]="{'border-danger': bankAccountNo.invalid && bankAccountNo.dirty}" class="border p-2 rounded" formControlName="bankAccountNo">
+          </div>
+        </section>
+
+        <section>
+          <label for="">อัพโหลดหน้าสมุดบัญชีธนาคาร</label>
+          <div class="d-flex">
+            <div 
+                class="upfile me-2 w-75 rounded d-flex align-items-center justify-content-center mb-5" 
+                (click)="imageFile.click()"
+                [ngStyle]="{'background': 'url(' + preview + ') no-repeat 0 0 / cover'}">
+                
+                <input type="file" (change)="selectIdCard($event)" accept="image/*" class="upfile__file" #imageFile>
+                <ng-container *ngIf="!preview">
+                    <img class="me-2" [src]="idCardPreview" alt="">
+                    <span style="font-size: 1.2rem; color: #888EA5;">อัพโหลดรูปภาพ</span>
+                </ng-container>
+            </div>
+          </div>
+        </section>
+
+      <div class="form__group">
+        <button class="btn btn-primary btn-lg w-100" [disabled]="accountInformationFrom.invalid" (click)="saveBankAcctount()">ถัดไป</button>
+      </div>
+    </form>
+  </section>
+</div>

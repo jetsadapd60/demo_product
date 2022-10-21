@@ -1,0 +1,96 @@
+@import "../../../../../../assets/scss/color";
+@import "../../../../../../assets/scss/responesive";
+
+.form-normal {
+  &__text-header {
+    color: var(--text-body);
+    @include responesive(md) {
+      // font-size: 24px !important;
+    }
+  }
+}
+
+
+.form {
+
+
+  &__group {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  &__input-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__hide-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__validators {
+    color: red;
+    font-size: 10px;
+  }
+
+  &__control {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: #888EA5;
+    }
+  }
+
+}
+
+
+
+#password-wrap {
+
+}
+
+#eye-icon {
+  // background: red;
+  // width: 15px;
+  // height: 15px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--text-helper);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-primary {
+  background: #134A89 !important;
+
+  &:hover {
+    background: #084387 !important;
+  }
+}
+
+#mobile-wrap {
+  display: flex;
+
+  select {
+    border: none;
+  }
+  
+}

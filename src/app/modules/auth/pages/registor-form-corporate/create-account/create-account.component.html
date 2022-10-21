@@ -1,0 +1,102 @@
+<div class="form-normal">
+
+    <div class="container">
+
+        <div class="row overflow-hidden justify-content-between" style="padding-top: 3.4rem;">
+
+            <div class="col-12 col-md-8 offset-md-2 mb-2">
+
+                <h1 class="fs-1 form-normal__text-header" style="color: #363E59; font-size: 32px;">สร้างบัญชีนิติบุคคล</h1>
+                <p class="form-normal__text-title">โดยการเปิดบัญชีนิติบุคคล คุณต้องกรอกรายละเอียด ตาม ข้อมูลด้านล่างนี้ เพื่อเปิดบัญชีการซื้อ-ขาย โดยที่เราจะติดต่อ กลับหาคุณให้เร็วที่สุด</p>
+
+            </div>
+
+            <div class="col-12 col-md-8 offset-md-2">
+
+                <form (ngSubmit)="onCreateAccount()" [formGroup]="registorCorporate">
+
+                    <div class="form__group">
+                        <label for="" class="text-color">อีเมล์</label>
+                        <div class="form__input-wrap border rounded mb-1" id="password-wrap">
+                            <input type="email" class="form__control" placeholder="อีเมล์" formControlName="email">
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle text-color me-2" style="font-size: 10px;"></i>
+                            <p class="m-0 text-color" style="font-size: 10px;">อีเมลนี้จะเป็นชื่อผู้ใช้ของคุณ และคุณจะได้รับ OTP ผ่านอีเมลนี้.</p>
+                        </div>
+                        <div class="form__validators" *ngIf="email.errors"> <!-- ข้อความเตือนข้อผิดพลาด -->
+                            <p class="m-0" *ngIf="email.hasError('required') && (email.invalid && email.dirty)">กรุณากรอกอีเมล์ </p>
+                            <p class="m-0" *ngIf="email.hasError('pattern')">รูปแบบอีเมล์ไม่ถูกต้อง </p>
+                        </div>
+                    </div>
+
+                    <!-- password -->
+                    <div class="form__group">
+                        <label class="form__label" for="pass">รหัสผ่าน</label>
+                        <div class="form__input-wrap border rounded">
+                            <input class="form__control" autocomplete="off" id="" formControlName="password" type="{{ isHidePass ? 'text' :'password' }}" placeholder="รหัสผ่าน">
+                            <i class="bi bi-eye form__hide-icon" *ngIf="password.value?.length > 0" (click)="isHidePass = !isHidePass"></i>
+                        </div>
+                        <div class="form__validators" *ngIf="password.errors"> <!-- ข้อความเตือนข้อผิดพลาด -->
+                            <p class="m-0" *ngIf="password.hasError('required') && (password.invalid && password.dirty)">กรุณากรอกรหัสผ่าน</p>
+                            <ul *ngIf="password.getError('pattern')" class="mb-0">
+                                <li>รหัสผ่านต้องมีความยาวไม่น้อยกว่า 8 ตัวอักษร</li>
+                                <li>ตัวอักษร (A-Z, a-z) อย่างน้อย 1 ตัว</li>
+                                <li>ตัวเลข 0-9 อย่างน้อน 1 ตัว</li>
+                                <li>เครื่องหมาย หรืออักขระพิเศษ (!@#%*#@~.,) อย่างน้อย 1 ตัว</li>
+                            </ul>
+                            <!-- <p class="m-0" *ngIf="password.getError('pattern')">กรุณากรอกรหัสผ่าน</p> -->
+                        </div>
+                    </div>
+
+                    <!-- Confirm password -->
+                    <div class="form__group">
+                        <label class="form__label" for="pass">ยืนยันรหัสผ่าน</label>
+                        <div class="form__input-wrap border rounded">
+                            <input class="form__control" autocomplete="off" id="" formControlName="confirm" type="{{ isHideConfirmPass ? 'text' :'password' }}" placeholder="รหัสผ่าน">
+                            <i class="bi bi-eye form__hide-icon" *ngIf="(confirm.value?.length > 0)" (click)="isHideConfirmPass = !isHideConfirmPass"></i>
+                        </div>
+                        <div class="form__validators"> <!-- ข้อความเตือนข้อผิดพลาด registorForm.getError('match_error')| json --> 
+                            <p class="m-0" *ngIf="confirm.hasError('required') && (confirm.invalid && confirm.dirty)">กรุณากรอกรหัสผ่าน</p>
+                            <p class="m-0" *ngIf="confirm.getError('confirmedValidator') && confirm.dirty">รหัสผ่านไม่ตรงกัน</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form__group mb-3">
+                        <label for="" class="text-color">เบอร์มือถือ</label>
+                        <div class="form__input-wrap mb-1 px-2 border rounded" id="mobile-wrap">
+                            <img src="../../../../assets/images/flag_thai.svg" alt="">
+                            <select name="" id="">
+                                <option value="">+66</option>
+                            </select>
+                            <input type="text" class="form__control" placeholder="เบอร์มือถือ" formControlName="phoneNumber">
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-info-circle text-color me-2" style="font-size: 10px;"></i>
+                            <p class="m-0 text-color" style="font-size: 10px;">คุณจะได้รับ OTP ผ่านเบอร์มือถือนี้</p>
+                        </div>
+                        <div class="form__validators text-danger"> <!-- ข้อความเตือนข้อผิดพลาด -->
+                            <p class="m-0" *ngIf="phone.hasError('required') && phone.dirty">กรุณากรอกเบอร์มือถือ </p>
+                            <!-- <p class="m-0" *ngIf="phone.errors">กรุณากรอกเบอร์มือถือให้ครบ </p> -->
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <!--  routerLink="/auth/create-account-corporate" -->
+                        <button class="btn btn-block btn-primary btn-lg  border-0" [disabled]="registorCorporate.invalid">ส่ง</button>
+                    </div>
+                    
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<p>
+    {{ confirm.getError('required') }}
+</p>

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_utl: 'http://203.150.199.17/',
+  aigen_key: 'PDniyfjawvs6godilho432jli154r97e4q'
 };
 
 /*

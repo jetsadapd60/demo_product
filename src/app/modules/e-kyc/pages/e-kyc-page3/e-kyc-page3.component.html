@@ -1,0 +1,93 @@
+<div class="personal-information">
+
+
+    <div class="container">
+
+        <div class="row" style="padding-top: 8rem;"> 
+
+            <div class="col-10 col-sm-10 col-md-6 order-2 order-sm-1 offset-md-1">
+                <div class="personal-information__left">
+                    <h2 class="personal-information__text-head mb-4" style="color: #363E59; font-size: 28px;">ข้อมูลส่วนตัว</h2>
+
+                    <form (ngSubmit)="onNextPage()" class="form" [formGroup]="personalDetailForm">
+
+                        <!-- ชื่อ -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">ชื่อ <sup class="text-danger">*</sup></label>
+                            <input type="text" formControlName="firstName" [ngClass]="{'border-danger': firstName.invalid && firstName.dirty}" class="form__control border rounded p-2">
+                        </div>
+
+                        <!-- นามสกุล -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">นามสกุล <sup class="text-danger">*</sup></label>
+                            <input type="text" formControlName="lastName" [ngClass]="{'border-danger': lastName.invalid && lastName.dirty}" class="form__control border rounded p-2">
+                        </div>
+
+                        <!-- เลขประจำตัวประชาชน -->
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">เลขประจำตัวประชาชน <sup class="text-danger">*</sup></label>
+                            <input type="text" formControlName="idCard" (keyup)="onValidateOnlyNumber($event, 'idCard')" maxlength="13" [ngClass]="{'border-danger': idCard.invalid && idCard.dirty}" class="form__control border rounded p-2">
+                        </div>
+
+                        <!-- วันเกิด -->
+                        <div class="form__group d-flex flex-column mb-3 w-50">
+                            <label for="" class="form__label">วัน-เดือน-ปีเกิด <sup class="text-danger">*</sup></label>
+                            <input type="date" [ngClass]="{'border-danger': birthDay.invalid && birthDay.dirty}" formControlName="birthDay" class="form__control border rounded p-2">
+                        </div>
+
+                        <!-- กรอกเบอร์มือถือ -->
+                        <div class="form__group">
+                            <label class="form__label" for="pass">เบอร์มือถือ <sup class="text-danger">*</sup></label>
+                            <div class="form__input-wrap d-flex mb-1 px-2 border rounded p-2" [ngClass]="{'border-danger': mobile.invalid && mobile.dirty}"  id="mobile-wrap">
+                                <img src="../../../../assets/images/flag_thai.svg" alt="">
+                                <select name="" id="" class="border-0">
+                                    <option value="TH">+66</option>
+                                </select>
+                                <input type="text" formControlName="mobile" (keyup)="onValidateOnlyNumber($event, 'mobile')" class="form__control border-0 w-100 ps-2" placeholder="เบอร์มือถือ" maxlength="10"> 
+                            </div>
+                            <div class="d-flex"> <!-- ข้อความใต้ input -->
+                                <i class="bi bi-info-circle text-color me-2" style="font-size: 10px;"></i>
+                                <p class="m-0 text-color" style="font-size: 10px;">เบอร์มือถือควรเป็นเบอร์เดียวกับบัญชีของคุณ</p>
+                            </div>
+                        </div>
+
+                        <div class="row  my-5">
+                            <div class="col-6 col-md-5 col-lg-4 d-flex justify-content-between mx-auto">
+                                <div class="form__line"></div>
+                                <div class="form__line"></div>
+                                <div class="form__line"></div>
+                                <div class="form__line"></div>
+                            </div>
+                        </div>
+
+                        <!-- ปุ่มกด -->
+                        <div class="button-group">
+                            <button class="btn btn-outline-primary btn-lg w-100">กลับ</button>
+                            <button class="btn btn-primary btn-lg w-100" [disabled]="personalDetailForm.invalid">ถัดไป</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 order-1 order-sm-2 pe-md-0">
+                <div class="personal-information__right d-flex justify-content-end">
+                    <div class="progress-bars d-flex align-items-center p-3 shadow rounded">
+                        <div class="progress-bar__left">
+                            <img src="../../../../../assets/images/card-logo.svg" alt="">
+                        </div>
+
+                        <div class="progress-bar__right">
+                            <p class="m-0" style="font-size: 14px; color: #888EA5;">การดำเนินการยืนยันตัวตนทั้งหมดของคุณ</p>
+                            <p class="m-0" style="font-size: 18px; color: #363E59;;">ดำเนินการแล้ว 0%</p>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

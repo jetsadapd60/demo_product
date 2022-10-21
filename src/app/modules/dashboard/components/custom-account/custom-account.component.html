@@ -1,0 +1,187 @@
+<ng-container *ngIf="toggleAccount.isShowCustomAccount$|async">
+    <div class="custom-account">
+
+        <div class="container">
+    
+            <div class="row">
+    
+                <div class="col-md-6 py-4 mx-auto">
+    
+                    <div class="card border-0">
+                        <ul>
+                            <li>
+                                <div class="d-flex justify-content-between border-bottom"  style="padding: 30px 40px 30px;">
+                                    <h3 style="font-size: 28px; color:#363E59;">บัญชีของคุณ</h3>
+                                    <img class="close-icon" (click)="toggleAccount.hidded()" src="../../../../../assets/images/x-icon.svg" alt="">
+                                </div>
+                            </li>
+    
+                            <li>
+                                <div class="text-center py-3">
+                                    <img src="../../../../../assets/images/user-image.webp" class="rounded-circle mb-3" width="75" alt="">
+                                    <p class="m-0" style="font-size: 16px; color:#4E73AA;">แก้ไขรูปโปร์ไฟล์</p>
+                                </div>
+                            </li>
+    
+                            <li>
+                                <form class="form" (ngSubmit)="onSaveEditProfile()" style="padding: 0px 40px 64px;">
+    
+                                    <!-- ชื่อ -->
+                                    <div class="form__group d-flex flex-column mb-3">
+                                        <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">ชื่อ</label>
+                                        <input formControlName="firstName" type="text" class="form__control border rounded p-2">
+                                    </div>
+    
+                                    <!-- บัญชีธนาคาร -->
+                                    <div class="form__group mb-3  position-relative">
+                                        <div class="d-flex justify-content-between">
+                                            <label for="" style="font-size: 16px; color:#888EA5;">บัญชีธนาคาร</label>
+                                            <div class="text-end">
+                                                <img src="../../../../../assets/images/pnecil.svg" alt="">
+                                                <span style="font-size: 16px; color:#4E73AA;">แก้ไข</span>
+                                            </div>
+                                        </div>
+                                        <section class="border rounded d-flex gap-3 p-2">
+                                            <div>
+                                                <img src="../../../../../assets/images/bank-icon.svg" alt="">
+                                            </div>
+                                            <div>
+                                                <p class="m-0" style="font-size: 16px; color:#363E59;">Kasikornbank</p>
+                                                <p class="m-0" style="font-size: 16px; color:#363E59;">051-2-xxxxx-6</p>
+                                            </div>
+                                            <div>
+                                                <i class="bi bi-check-lg"></i>
+                                            </div>
+                                        </section>
+                                    </div>
+    
+                                    <!-- กรอกเบอร์มือถือ -->
+                                    <div class="form__group mb-3">
+                                        <label style="font-size: 16px; color:#888EA5;" class="form__label" for="pass">เบอร์มือถือ</label>
+                                        <div class="form__input-wrap d-flex mb-1 px-2 border rounded p-2 position-relative">
+                                            <div class="d-flex">
+                                                <img src="../../../../assets/images/flag_thai.svg" alt="">
+                                                <select name="" id="" class="border-0">
+                                                    <option value="TH">+66</option>
+                                                </select>
+                                                <input type="text" class="form__control border-0 w-100 ps-2"> 
+                                            </div>
+                                            <i class="bi bi-check-lg"></i>
+                                        </div>
+                                    </div>
+    
+                                    <!-- อีเมล -->
+                                    <div class="form__group d-flex flex-column mb-3">
+                                        <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">อีเมล</label>
+                                        <input  type="text" class="form__control border rounded p-2">
+                                    </div>
+    
+                                    <!-- ต้องการเปลี่ยนรหัสผ่าน -->
+                                    <div class="form__group d-flex flex-column mb-5">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="../../../../../assets/images/lock-icon.svg" alt="">
+                                            <p class="m-0" style="font-size: 1rem; color:#363E59;">ต้องการเปลี่ยนรหัสผ่าน, <a class="text-decoration-none" href="">คลิกที่นี่</a></p>
+                                        </div>
+                                    </div> 
+    
+                                    <p class="personal-information__text-head mb-4" style="font-size: 24px; color:#888EA5;">ข้อมูลที่อยู่</p>
+    
+                                    <section formGroupName="houseRegisAddress">
+                                        <section class="row">
+    
+                                            <div class="col-md-6 d-flex flex-column mb-3">
+                                                <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">เลขที่</label>
+                                                <input formControlName="addressNo" type="text" class="form__control border rounded p-2 w-100">
+                                            </div>
+                    
+                                            <div class="col-md-6 d-flex flex-column mb-3">
+                                                <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">หมู่</label>
+                                                <input formControlName="addressMoo" type="text" class="form__control border rounded p-2 w-100">
+                                            </div>
+                    
+                                        </section>
+                    
+                                        <section class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">อาคาร / หมู่บ้าน</label>
+                                            <input formControlName="addressBuilding" type="text" class="form__control border rounded p-2 w-100">
+                                        </section>
+                    
+                                        <section class="row">
+                    
+                                            <div class="col-md-6 d-flex flex-column">
+                                                <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">ชั้น / ห้อง</label>
+                                                <input formControlName="addressFloor" type="text" class="form__control border rounded p-2 w-100">
+                                            </div>
+                    
+                                            <div class="col-md-6 d-flex flex-column mb-3">
+                                                <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">ซอย</label>
+                                                <input formControlName="addressSoi" type="text" type="text" class="form__control border rounded p-2 w-100">
+                                            </div>
+                    
+                                        </section>
+                    
+                                        <div class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">ถนน</label>
+                                            <input formControlName="addressStreet" type="text" class="form__control border rounded p-2">
+                                        </div>
+        
+                                        <!-- จังหวัด -->
+                                        <div class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">จังหวัด</label>
+                                            <!--  [ngClass]="{'border-danger': province.invalid && province.dirty}" (change)="onSelectProvince('residence')"  -->
+                                            <select formControlName="cK_SyPr" class="form__control border p-2 rounded">
+                                                <option value="">- เลือก -</option>
+                                                <!-- [value]="province.pK_SyPr" *ngFor="let province of provinces" -->
+                                                <option>test</option>
+                                            </select>
+                                        </div>
+        
+                                        <!-- เขต / อำเภอ -->
+                                        <div class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">เขต / อำเภอ</label>
+                                            <!-- (change)="onSelectAmphure('residence')"  -->
+                                            <select formControlName="cK_SyAm" class="form__control border p-2 rounded">
+                                                    <option value="">- เลือก -</option>
+                                                    [value]="amphure.pK_SyAm" *ngFor="let amphure of amphures"
+                                                <option>กรุงเทพ</option>
+                                            </select>
+                                        </div>
+        
+                                        <!-- แขวง / ตำบล -->
+                                        <div class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">แขวง / ตำบล</label>
+                                            <!-- [ngClass]="{'border-danger': strict.invalid && strict.dirty}" (change)="onSelectDistrict(districts, 'residence')"  -->
+                                            <select formControlName="cK_SyDi" class="form__control border p-2 rounded">
+                                                    <option value="">- เลือก -</option>
+                                                    <!-- [value]="district.pK_SyDi" *ngFor="let district of districts" -->
+                                                <option>test</option>
+                                            </select>
+                                        </div>
+        
+                                        <!-- รหัสไปรษณีย์ -->
+                                        <div class="form__group d-flex flex-column mb-3">
+                                            <label style="font-size: 16px; color:#888EA5;" for="" class="form__label">รหัสไปรษณีย์</label>
+                                            <!--  (keyup)="onValidateOnlyNumber($event)" [ngClass]="{'border-danger': addressZipCode.invalid && addressZipCode.dirty}"  -->
+                                            <input formControlName="addressZipCode" type="text" maxlength="5" class="form__control border rounded p-2 w-100">
+                                        </div>
+                                    </section>
+    
+                                    <!-- Button Group -->
+                                    <div class="button-group col-12">
+                                        <!-- [disabled]="residenceForm.invalid" (click)="onNextPage()" -->
+                                        <button class="btn btn-primary btn-lg w-100" type="submit">บันทึก</button>
+                                    </div>
+    
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+</ng-container>

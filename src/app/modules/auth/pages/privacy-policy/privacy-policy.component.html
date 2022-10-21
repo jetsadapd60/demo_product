@@ -1,0 +1,71 @@
+<div class="privacy">
+    <div class="privacy__left">
+        <div class="privacy__logo-wrap">
+            <img class="privacy__logo" src="../../../../assets/images/logo-privacy-policy.svg" alt="">
+        </div>
+    </div>
+    <div class="privacy__right">
+        <div class="privacy__box">
+            <h2 class="privacy__text-head">สร้างบัญชี <br>
+                <small class="privacy__text-small">เพื่อความรวดเร็ว ให้ผู้สมัครเตรียมข้อมูลดังนี้</small>
+            </h2>
+
+            <ul class="privacy__list">
+                <li class="privacy__item">
+                    <div class="privacy__icon-wrap">
+                        <img src="../../../../assets/images/create-accoun-icon.svg" alt="" class="privacy__icon">
+                    </div>
+                    <div class="privacy__text-wrap">
+                        <p class="privacy__text-title">สร้างบัญชี <br>
+                            <small class="privacy__title-small">กรอกเบอร์โทรศัพท์มือถือ และอีเมล โดยระบบจะให้ยืนยัน OTP และสร้าง PIN</small>
+                        </p>
+                    </div>
+                </li>
+                <li class="privacy__item">
+                    <div class="privacy__icon-wrap">
+                        <img src="../../../../assets/images/self-confirm-icon.svg" alt="" class="privacy__icon">
+                    </div>
+                    <div class="privacy__text-wrap">
+                        <p class="privacy__text-title">ยืนยันตัวตน <br>
+                            <small class="privacy__title-small">รายละเอียดการกรอกข้อมูลทั่วไปโดยระบบจะให้สแกนบัตร ประชาชนและใบหน้า</small>
+                        </p>
+                    </div>
+                </li>
+                <li class="privacy__item">
+                    <div class="privacy__icon-wrap">
+                        <img src="../../../../assets/images/self-confirm-icon.svg" alt="" class="privacy__icon">
+                    </div>
+                    <div class="privacy__text-wrap">
+                        <p class="privacy__text-title">ผูกบัญชีธนาคาร <br>
+                            <small class="privacy__title-small">อัพโหลดไฟล์ธนาคารที่ท่านต้องการใช้ทำธุรกรรมประเภท ออมทรัพย์</small>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="privacy__checklist">
+                <p class="privacy__check-head">ในการสร้างบัญชีนี้ ข้าพเจ้า</p>
+                <form [formGroup]="agreeForm">
+                    <div class="privacy__checklist-wrap">
+                        <input formControlName="agreeOne" type="checkbox"> 
+                        <p>ยินยอมตาม <span routerLink="/auth/terms-service">เงื่อนไขการให้บริการ</span></p>
+                    </div>
+                    <div class="privacy__checklist-wrap">
+                        <input formControlName="agreeTwo" type="checkbox" name="" id="" #agree> 
+                        <p>ยินยอมตาม<span>นโยบายรักษาความเป็นส่วนตัว</span>ของข้อมูล ของบริษัท ออสสิริส</p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="privacy__btn-wrap">
+                <button class="privacy__btn" routerLink="/auth/terms-service" [ngClass]="{'privacy__btn--enable': !enableButton, 'privacy__btn--disable': enableButton}">ดำเนินการต่อ</button>
+            </div>
+
+            <div class="privacy__register-link">
+                <p class="m-0">มีบัญชีแล้ว.</p>
+                <a routerLink="/auth/login" class="">เข้าสู่ระบบ</a>
+            </div>
+
+        </div>
+    </div>
+</div>

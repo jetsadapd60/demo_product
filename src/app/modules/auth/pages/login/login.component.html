@@ -1,0 +1,49 @@
+<div class="login">
+    <div class="login__left p-3 d-flex justify-content-center align-items-center overflow-hidden">
+        <div class="login__logo-login">
+            <img class="" src="../../../../assets/images/logo-login.svg" alt="">
+        </div>
+    </div>
+    <div class="login__right ">
+        <form class="form" (ngSubmit)="submitForm($event)" [formGroup]="loginForm">
+            <h2 class="login__text-head">เข้าสู่ระบบ</h2>
+            
+            <div class="form__group">
+                <label class="form__label" for="email">อีเมล์</label>
+                <input class="form__input rounded border" [ngClass]="{'border-danger': incorrect}" id="email" type="email" formControlName="email" placeholder="อีเมล์">
+                <div class="form__validators" *ngIf="email.errors || incorrect">
+                    <p class="m-0" *ngIf="email.hasError('required') && (email.invalid && email.dirty)">กรุณากรอกอีเมล์ </p>
+                    <p class="m-0" *ngIf="email.hasError('pattern')">รูปแบบอีเมล์ไม่ถูกต้อง </p>
+                    <p class="m-0" *ngIf="incorrect">อีเมล์ หรือ รหัสผ่านไม่ถูกต้อง </p>
+                </div>
+            </div>
+            <div class="form__group">
+                <label class="form__label" for="pass">รหัส</label>
+                <div class="form__input-wrap">
+                    <input class="form__input rounded border" [ngClass]="{'border-danger': incorrect}" autocomplete="off" id="pass" formControlName="password" type="{{ isHidePass ? 'text' :'password' }}" placeholder="รหัสผ่าน">
+                    <i class="bi bi-eye form__hide-icon" *ngIf="password.value?.length > 0" (click)="onToggleShowPass()"></i>
+                </div>
+                <div class="form__validators" *ngIf="password.errors || incorrect">
+                    <p class="m-0" *ngIf="password.hasError('required') && (password.invalid && password.dirty)">กรุณากรอกรหัสผ่าน</p>
+                    <p class="m-0" *ngIf="password.getError('minlength') && (password.invalid && password.dirty)">กรอกรหัสอย่างน้อง 8 อักษร</p>
+                    <p class="m-0" *ngIf="incorrect">อีเมล์ หรือ รหัสผ่านไม่ถูกต้อง </p>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__remember-wrap">
+                    <input type="checkbox">Remember me
+                </div>
+                <a class="form__forget-link" href="">ลืมรหัสผ่าน ?</a>
+            </div>
+
+            <div class="form__group">
+                <button [disabled]="loginForm.invalid" class="btn btn-primary btn-lg">เข้าสู่ระบบ</button>
+            </div>
+
+            <div class="form__group">
+                <p class="form__text-signup m-0">คุณยังไม่มีบัญชีใช่ไหม?</p>
+                <a routerLink="/auth/privacy-policy" class="form__signup-link">สมัครสมาชิก</a>
+            </div>
+        </form>
+    </div>
+</div>

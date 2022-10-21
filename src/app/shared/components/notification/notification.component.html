@@ -1,0 +1,68 @@
+<!-- <div class="notification notification--{{noti.type}} position-fixed rounded-3 overflow-hidden" *ngIf="noti">
+    <div class="container p-3">
+        <div class="row">
+            <div class="text-light p-0 d-flex">
+
+                <div class="notification__icon-wrap">
+                    <i class="{{ noti.stype.icon || 'bi bi-bell' }} px-2 notification__icon-message"></i>
+                </div>
+
+                <div class="notification__message">
+                    <div class="notification__message-head">
+                        {{ noti.head }}
+                    </div>
+                    <div class="notification__message-title">
+                        {{ noti.title }}
+                    </div>
+                </div>
+
+                <div class="notification__icon-wrap ms-auto">
+                    <i class="bi bi-x-lg notification__icon-close" (click)="onCloseMessage()"></i>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="noti" *ngIf="noti">
+
+    <div class="container">
+
+        <div class="row vh-100 align-items-center justify-content-center">
+
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4 p-0 overflow-hidden rounded">
+                <div class="noti__card bg-white p-3 d-flex flex-column align-items-center">
+
+                    <div class="noti__circle noti__circle--{{noti.type}} rounded-circle d-flex justify-content-center align-items-center my-3" style="width: 80px; height: 80px;">
+                        <img src="../../../../assets/images/check.svg" *ngIf="(noti.type === 'Success')" alt="">
+                        <img src="../../../../assets/images/x.svg" *ngIf="noti.type === 'Failed'" alt="">
+                    </div>
+
+                    <div class="noti__text-header text-center mb-3">
+                        <h3 class="mb-0 pb-0" style="color: #171B29;">{{ noti.head }}</h3>
+                        <span style="color: #888EA5; font-size: .8rem;" *ngIf="(noti.type === 'Success') || (noti.type === 'Failed')">{{ currentTime | date: 'short' }}</span>
+                    </div>
+
+                    <div class="noti__text-title mb-3">
+                        <p style="color: #363E59;">{{ noti.title }}</p> 
+                    </div>
+
+                    <div class="noti__button-group w-100 pb-3">
+                        <button class="btn btn-primary w-100 btn-lg" *ngIf="(noti.type === 'Success')" (click)="onCloseMessage()">เสร็จ</button>
+
+                        <button class="btn btn-primary w-100 btn-lg" *ngIf="noti.type === 'Failed'" (click)="onCloseMessage()">ปิด</button>
+
+                        <!-- <button class="btn btn-primary w-100 btn-lg" *ngIf="noti.type === 'Failed'" (click)="onCloseMessage()">ยืนยัน</button>
+
+                        <button class="btn btn-light w-100 btn-lg" (click)="onCloseMessage()">ยกเลิก</button> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+</div>

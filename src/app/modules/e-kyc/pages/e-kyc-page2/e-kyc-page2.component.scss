@@ -1,0 +1,40 @@
+.verify-detail {
+    &__text-title {
+        font-size: 1rem;
+        color: #888EA5;
+    }
+}
+
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    & li {
+        display: flex;
+        align-items: center;
+
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    & li img {
+        width: 1rem;
+        height: 1rem;
+        margin-right: .5rem;
+    }
+
+    & li span {
+        font-size: 1rem;
+        color: #888EA5;
+    }
+}
+
+.btn.btn-primary {
+    background: #134A89;
+
+    &:hover {
+        background: #00408a;
+    }
+}

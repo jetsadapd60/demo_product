@@ -1,0 +1,44 @@
+<div class="top">
+    <div class="top__left">
+        <img src="../../../../assets/logo/brand-logo.png" class="top__logo" routerLink="/" alt="">
+    </div>
+    <div class="top__stretch"></div>
+    <div class="top__right">
+        <ul class="top__list">
+            <li class="top__item"><i class="top__icon far fa-bell"></i></li>
+            <li class="top__item"><i class="top__icon fas fa-info-circle"></i></li>
+            <li class="top__item top__item--flex"><i class="top__icon fas fa-globe"></i></li>
+            <li class="top__item top__item--flex"><span class="top__item--white">EN</span></li>
+            <li class="top__item "><div class="top__item--line"></div></li>
+            <li class="top__item top__item--flex"><i class="top__icon far fa-user"></i></li>
+            <li class="top__item top__item--flex position-relative">
+                <span class="top__item--white" style="cursor: pointer;" (click)="closeToggleSettingMenu()">
+                บัญชี
+                </span>
+                <ul class="setting shadow" *ngIf="isToggleSettingMenu" >
+                    <li class="border-bottom">
+                        <div class="setting__top py-2">
+                            <div class="setting__left">
+                                <img class="rounded-circle border" [src]="imageProfile" width="70" height="70" alt="">
+                            </div>
+                            <div class="setting__center">
+                                <p class="m-0" style="font-size: 16px; color:#363E59;">{{ fullName }}</p>
+                                <small style="font-size: 14px; color:#888EA5;">ID : 45652319453</small>
+                            </div>
+                            <div class="setting__right">
+                                <div class="setting__state">ยืนยันตัวตนแล้ว</div>
+                            </div>
+                        </div>
+                    </li>
+                    <div (click)="closeToggleSettingMenu()">
+                        <li (click)="toggleAccount.show()" class="setting__item py-2">บัญชี</li>
+                        <li routerLink="" class="setting__item py-2">ความปลอดภัย</li>
+                        <li routerLink="" class="setting__item py-2">การตั้งค่า</li>
+                        <li routerLink="contact" class="setting__item py-2">ติดต่อเรา</li>
+                        <li routerLink="help-support" class="setting__item border-bottom py-2">บริการช่วยเหลือ</li>
+                        <li (click)="logout()" class="setting__item py-4">ออกจากระบบบ</li>
+                    </div>
+                </ul></li>
+        </ul>
+    </div>
+</div>

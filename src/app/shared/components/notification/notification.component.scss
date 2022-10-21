@@ -1,0 +1,152 @@
+@import "../../../../assets/scss/responesive";
+
+// .notification {
+//   width: auto;
+//   margin: 0 auto;
+//   min-width: 20%;
+//   top: 0px;
+//   /* left: 50%; */
+//   right: 10px;
+//   /* transform: translateX(-50%); */
+//   z-index: 999;
+//   opacity: 0;
+//   animation-name: notification;
+//   animation-duration: 0.5s;
+//   animation-fill-mode: forwards;
+
+//   &--Success {
+//     background: #30A480;
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0px;
+//       top: 0px;
+//       height: 100%;
+//       width: 8px;
+//       background: #52b495;
+//     }
+//   }
+//   &--Info {
+//     background: #888ea5;
+//   }
+//   &--Warn {
+//     background: rgba(255, 211, 54, 0.5);
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0px;
+//       top: 0px;
+//       height: 100%;
+//       width: 8px;
+//       background: #ffd336;
+//     }
+//   }
+//   &--Error {
+//     background: rgba(212, 56, 82, 0.5);
+
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0px;
+//       top: 0px;
+//       height: 100%;
+//       width: 8px;
+//       background: #d43853;
+//     }
+//   }
+
+//   @include responesive(md) {
+
+//     // width: auto;
+//     // margin: 0 auto;
+//     // min-width: 20%;
+//     // top: 0px;
+//     // left: 50%;
+//     // transform: translateX(-50%);
+//   }
+
+//   &__icon-message {
+//     font-size: 40px;
+//     color: #fff;
+//   }
+
+//   &__message-head {
+//     font-family: "PromptMedium";
+//     font-size: 18px;
+//     color: #fff;
+//   }
+
+//   &__message-title {
+//     font-size: 15px;
+//     color: #fff;
+//   }
+
+//   &__icon-close {
+//     color: #fff;
+//     display: block;
+//     padding: 0px 5px;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// @keyframes notification {
+//   0% {
+//     top: 30px;
+//     opacity: 0;
+//   }
+
+//   100% {
+//     top: 10px;
+//     opacity: 1;
+//   }
+// }
+
+.noti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  &__circle {
+    &--Success {
+      background: #30a480;
+    }
+    // &--Info {
+    //   background: #888ea5;
+    // }
+    &--Pending {
+      background: rgba(255, 211, 54, 0.5);
+    }
+    &--Failed {
+      background: #ea506c;
+    }
+    &--Confirm {
+      background: blue;
+    }
+  }
+}
+
+.btn.btn-primary {
+  background: #134A89 !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background: #004088 !important;
+  }
+}
+
+.btn.btn-light {
+  background: transparent !important;
+  color: #004088 !important;
+
+  &:hover {
+    border: 1px solid rgba(128, 128, 128, 0.308);
+  }
+}

@@ -1,0 +1,244 @@
+@import "../../../../../assets/scss/color";
+@import "../../../../../assets/scss/responesive";
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35% 1fr;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+
+  @include responesive(sm) {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 100vh;
+    width: 100%;
+    // height: 100vh;
+  }
+
+  &__left {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #d6e3f6;
+    // padding-bottom: 5%;
+
+    @include responesive(sm) {
+      // padding-bottom: 2%;
+      // align-items: center;
+    }
+  }
+
+  &__logo-login {
+
+    img {
+      width: 100%;
+    }
+
+    // @include responesive(sm) {
+    //   width: 50%;
+    // }
+  }
+
+  &__right {
+    padding: 10%;
+
+    @include responesive(sm) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__text-head {
+    color: $dark;
+    margin-bottom: 30px;
+  }
+}
+
+.form {
+  width: 100%;
+
+  @include responesive(xl) {
+    width: 80%;
+}
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &__group:last-child {
+    color: red;
+    text-decoration: none;
+  }
+
+  &__group:nth-child(3) {
+    margin-bottom: 10px !important;
+  }
+  
+  &__group:nth-child(4) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8%;
+
+    @include responesive(sm) {
+      // justify-content: flex-end;
+    }
+  }
+
+  &__input-wrap {
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__hide-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: $secondary;
+    font-size: 20px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox*/
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__remember-wrap {
+    font-size: 12px;
+    color: $secondary;
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+
+    @include responesive(sm) {
+      display: none;
+    }
+  }
+
+  &__forget-link {
+    text-decoration: none;
+    color: $secondary;
+    font-size: 12px;
+    transition: all 0.4s;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #144a89;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    color: $secondary;
+    margin-bottom: 5px;
+
+    @include responesive(xl) {
+      font-size: 15px;
+  }
+  }
+
+  &__input {
+    // border: 1px solid $secondary;
+    // border-radius: 6px;
+    padding: 12px 10px;
+    color: $secondary;
+    outline: none;
+    width: 100%;
+    font-size: 10px;
+
+    @include responesive(xl) {
+      font-size: 15px;
+  }
+
+    &::placeholder {
+      color: $secondary;
+      font-size: 12px;
+
+      @include responesive(xl) {
+        font-size: 15px;
+    }
+    }
+  }
+
+  &__btn {
+    background: #144a89;
+    color: $light;
+    font-size: 12px;
+    padding: 12px 0px;
+    border-radius: 6px;
+    border: none;
+    opacity: 1;
+    margin-top: 10px;
+    transition: all 0.4s;
+
+    @include responesive(xl) {
+      font-size: 15px;
+  }
+
+    &:hover {
+      opacity: 0.9;
+      cursor: pointer;
+    }
+  }
+
+  &__group:last-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text-signup {
+    color: $secondary;
+    font-size: 12px;
+  }
+
+  &__text-signup {
+    padding-right: 8px;
+  }
+
+  &__signup-link {
+    font-family: "PromptMedium";
+    color: #144a89;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.4s;
+
+    &:hover {
+      color: $secondary !important;
+      text-decoration: underline;
+    }
+  }
+
+  &__validators {
+    color: red;
+    font-size: 10px;
+  }
+}
+
+
+.btn-primary {
+  background: #144a89 !important;
+
+  @include responesive(xl) {
+    // font-size: 15px;
+}
+
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}

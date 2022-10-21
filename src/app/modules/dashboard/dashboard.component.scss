@@ -1,0 +1,28 @@
+@import "../../../assets/scss/color";
+
+.dashboard {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 100vh;
+    background: $primary;
+
+    &__layout {
+        width: 100%;
+        height: calc(100vh - 72px);
+        display: grid;
+        grid-template-columns: 180px 1fr;
+    }
+
+    &__side {
+
+    }
+
+    &__main {
+        width: 98%;
+        height: 98%;
+        overflow-y: scroll;
+
+        background: #f0f1f6;
+    }
+}

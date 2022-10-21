@@ -1,0 +1,70 @@
+@import "../../../../../assets/scss/responesive";
+
+.otp-verification {
+  &__text-header {
+    font-size: 18px;
+    color: var(--text-body);
+
+    @include responesive(md) {
+      font-size: 32px;
+      color: #363e59;
+    }
+  }
+
+  &__text-title {
+    color: var(--text-helper);
+    font-size: 14px;
+
+    @include responesive(md) {
+        font-size: 20px;
+        color: var(--text-helper);
+      }
+  }
+
+  &__resend-otp {
+    font-size: 14px;
+    color: #4e73aa;
+    cursor: pointer;
+
+    @include responesive(md) {
+        font-size: 20px;
+        color: #4E73AA;
+    }
+  }
+}
+
+.form {
+  &__group {
+    width: 60px;
+    height: 74px;
+
+    @include responesive(md) {
+      width: 60px;
+      height: 90px;
+    }
+
+    @include responesive(lg) {
+        width: 70px;
+        height: 90px;
+      }
+  }
+
+  &__control {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: var(--surface-secondary);
+    color: var(--text-body);
+
+    @include responesive(md) {
+      font-size: 50px;
+    }
+
+    &:focus {
+      border: 1px solid #98accc;
+    }
+  }
+}

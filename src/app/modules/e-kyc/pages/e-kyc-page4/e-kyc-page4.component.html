@@ -1,0 +1,207 @@
+<div class="personal-information">
+
+
+    <div class="container">
+
+        <div class="row pb-4" style="padding-top: 5rem;"> 
+
+            <div class="col-10 col-sm-10 col-md-6 order-2 order-sm-1 offset-md-1">
+                <div class="personal-information__left">
+                    <h2 class="personal-information__text-head mb-4" style="color: #363E59; font-size: 28px;">ข้อมูลที่อยู่ <br>
+                    <small style="font-size: 15px;">ข้อมูลที่อยู่ตามบัตรประชาชนของคุณหากมีการใช้ข้อมูลที่อยู่ที่ไม่ตรงกับบัตร ประชาชน คุณสามารถเลือกเปิดใช้งานที่อยู่อื่น</small>
+                </h2>
+
+                <!-- Residence Form -->
+                <form class="form" [formGroup]="residenceForm">
+
+                    <section class="form__wrap">
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">เลขที่</label>
+                            <input formControlName="addressNo" [ngClass]="{'border-danger': addressNo.invalid && addressNo.dirty}" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">หมู่</label>
+                            <input formControlName="addressMoo" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                    </section>
+
+                    <section class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">อาคาร / หมู่บ้าน</label>
+                        <input formControlName="addressBuilding" type="text" class="form__control border rounded p-2 w-100">
+                    </section>
+
+                    <section class="form__wrap">
+
+                        <div class="form__group d-flex flex-column">
+                            <label for="" class="form__label">ชั้น / ห้อง</label>
+                            <input formControlName="addressFloor" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">ซอย</label>
+                            <input formControlName="addressSoi" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                    </section>
+
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">ถนน</label>
+                        <input formControlName="addressStreet" [ngClass]="{'border-danger': addressStreet.invalid && addressStreet.dirty}" type="text" class="form__control border rounded p-2">
+                    </div>
+
+
+                    <!-- จังหวัด -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">จังหวัด</label>
+                        <select formControlName="cK_SyPr" [ngClass]="{'border-danger': province.invalid && province.dirty}" (change)="onSelectProvince('residence')" name="" id="" class="form__control border p-2 rounded">
+                            <option value="">- เลือก -</option>
+                            <option [value]="province.pK_SyPr" *ngFor="let province of provinces">{{ province.name_Th }}</option>
+                        </select>
+                    </div>
+
+                    <!-- เขต / อำเภอ -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">เขต / อำเภอ</label>
+                        <select formControlName="cK_SyAm" [ngClass]="{'border-danger': amphure.invalid && amphure.dirty}" (change)="onSelectAmphure('residence')" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option>
+                            <option [value]="amphure.pK_SyAm" *ngFor="let amphure of amphures">{{ amphure.name_Th }}</option>
+                        </select>
+                    </div>
+
+                    <!-- แขวง / ตำบล -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">แขวง / ตำบล</label>
+                        <select formControlName="cK_SyDi" [ngClass]="{'border-danger': strict.invalid && strict.dirty}" (change)="onSelectDistrict(districts, 'residence')" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option>
+                            <option [value]="district.pK_SyDi" *ngFor="let district of districts">{{ district.name_Th }}</option>
+                        </select>
+                    </div>
+                    {{ addressZipCode.getError("maxLength") }}
+                    <!-- รหัสไปรษณีย์ -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">รหัสไปรษณีย์</label>
+                        <input formControlName="addressZipCode" (keyup)="onValidateOnlyNumber($event)" [ngClass]="{'border-danger': addressZipCode.invalid && addressZipCode.dirty}" type="text" maxlength="5" class="form__control border rounded p-2 w-100">
+                    </div>
+                </form>
+                <!-- End Residence Form -->
+                
+                {{ isDisableButton }}
+                <!-- switches -->
+                <div class="switches my-5 col-12">
+                    <div class="switches__wrap" [ngClass]="{'switches__wrap--bg': isSameAddress}" (click)="onAddFormArray()">
+                        <div class="switches__circle" [ngClass]="{'switches__circle--move-left': !isSameAddress,'switches__circle--move-right': isSameAddress}"></div>
+                    </div>
+                    <p class="m-0" style="font-size: 1rem;color: #363E59;">ที่อยู่ปัจจุบันไม่ตรงกับบัตรประชาชน</p>
+                </div>
+                <!-- End switches -->
+
+                <!-- Other Residence Form -->
+                <form class="form" [formGroup]="otherResidenceForm" *ngIf="isSameAddress">
+
+                    <section class="form__wrap">
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">เลขที่</label>
+                            <input formControlName="addressNo" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">หมู่</label>
+                            <input formControlName="addressMoo" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                    </section>
+
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">อาคาร / หมู่บ้าน</label>
+                        <input formControlName="addressBuilding" type="text" class="form__control border rounded p-2 w-100">
+                    </div>
+
+                    <section class="form__wrap">
+
+                        <div class="form__group d-flex flex-column">
+                            <label for="" class="form__label">ชั้น / ห้อง</label>
+                            <input formControlName="addressFloor" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                        <div class="form__group d-flex flex-column mb-3">
+                            <label for="" class="form__label">ซอย</label>
+                            <input formControlName="addressSoi" type="text" class="form__control border rounded p-2 w-100">
+                        </div>
+
+                    </section>
+
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">ถนน</label>
+                        <input formControlName="addressStreet" type="text" class="form__control border rounded p-2">
+                    </div>
+
+
+                    <!-- จังหวัด -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">จังหวัด</label>
+                        <select formControlName="cK_SyPr" (change)="onSelectProvince('other')" name="" id="" class="form__control border p-2 rounded">
+                            <option value="">- เลือก -</option>
+                            <option [value]="province.pK_SyPr" *ngFor="let province of provincesOther">{{ province.name_Th }}</option>
+                        </select>
+                    </div>
+
+                    <!-- เขต / อำเภอ -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">เขต / อำเภอ</label>
+                        <select formControlName="cK_SyAm" (change)="onSelectAmphure('other')" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option>
+                            <option [value]="amphure.pK_SyAm" *ngFor="let amphure of amphureOther">{{ amphure.name_Th }}</option>
+                        </select>
+                    </div>
+
+                    <!-- แขวง / ตำบล -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">แขวง / ตำบล</label>
+                        <select formControlName="cK_SyDi" (change)="onSelectDistrict(districtsOther, 'other')" class="form__control border p-2 rounded">
+                                <option value="">- เลือก -</option>
+                            <option [value]="district.pK_SyDi" *ngFor="let district of districtsOther">{{ district.name_Th }}</option>
+                        </select>
+                    </div>
+
+                    <!-- รหัสไปรษณีย์ -->
+                    <div class="form__group d-flex flex-column mb-3">
+                        <label for="" class="form__label">รหัสไปรษณีย์</label>
+                        <input type="text" [value]="zipCodeOther" class="form__control border rounded p-2">
+                    </div>
+                </form>
+                <!-- End Other Residence Form -->
+
+                    <!-- Button Group -->
+                    <div class="button-group col-12">
+                        <button class="btn btn-outline-primary btn-lg w-100">กลับ</button>
+                        <button class="btn btn-primary btn-lg w-100" [disabled]="residenceForm.invalid" (click)="onNextPage()">ถัดไป</button>
+                    </div>
+                    <!-- End Button Group -->
+                </div>
+            </div>
+
+            <div class="col-md-4 order-1 order-sm-2 pe-md-0">
+                <div class="personal-information__right d-flex justify-content-end">
+                    <div class="progress-bars d-flex align-items-center p-3 shadow rounded">
+                        <div class="progress-bar__left">
+                            <img src="../../../../../assets/images/card-logo.svg" alt="">
+                        </div>
+
+                        <div class="progress-bar__right">
+                            <p class="m-0" style="font-size: 14px; color: #888EA5;">การดำเนินการยืนยันตัวตนทั้งหมดของคุณ</p>
+                            <p class="m-0" style="font-size: 18px; color: #363E59;;">ดำเนินการแล้ว 20%</p>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

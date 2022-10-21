@@ -1,0 +1,69 @@
+<div class="personal-information pb-5">
+
+
+    <div class="container">
+
+        <div class="row" style="padding-top: 5rem;"> 
+
+            <div class="col-10 col-sm-10 col-md-6 order-2 order-sm-1 offset-md-1">
+                <div class="personal-information__left">
+                    <p class="personal-information__text-head mb-4" style="color: #363E59; font-size: 28px;">อัพโหลดบัตรประชาชนเพื่อยืนยันการเปิด <br> บัญชีของคุณ</p>
+                    <small class="d-block mb-4" style="font-size: 1rem; color: #888EA5;">เพื่อความปลอดภัยของบัญชีพอร์ทและเป็นการยืนยันที่จะเปิดบัญชีพอร์ทของ คุณ จึงมีความจำเป็นต้องอัพโหลดปบัตรประชาชนทั้งด้านหน้า-หลังบัตร</small>
+                    <p class="personal-information__text-head mb-4" style="font-size: 1.2rem; color: #363E59;">โปรดเตรียมบัตรประจำตัวประชาชนของท่านให้พร้อมสำหรับการยืนยันบัตร</p>
+                    <ul  style="font-size: 1rem; color: #888EA5;">
+                        <li class="mb-2">รูปมีความสว่างเพียงพอและเห็นข้อมูลบนบัตรครบถ้วนชัดเจน</li>
+                        <li class="mb-2">ระวังแสงสะท้อนที่อาจทำให้เห็นข้อมูลบนบัตรไม่ชัดเจน</li>
+                        <li class="mb-2">รูปถ่ายต้องเป็นบัตรประชาชนตัวจริงเท่านั้น</li>
+                    </ul>
+                    <p style="color: #363E59; font-size: 1rem;">บัตรประชาชนของคุณ</p>
+                    <!-- อัพโหลดรูป -->
+                    <section class="d-flex">
+                        <div 
+                            class="upfile me-2 w-50 rounded d-flex align-items-center justify-content-center" 
+                            (click)="imageFile.click()"
+                            [ngStyle]="{'background': 'url(' + preview + ') no-repeat 0 0 / cover'}">
+                            <input type="file" (change)="selectIdCard($event)" accept="image/*" class="upfile__file" #imageFile>
+                            <ng-container *ngIf="!preview">
+                                <img class="me-2" [src]="idCardPreview" alt="">
+                                <span style="font-size: 1.2rem; color: #888EA5;">อัพโหลดรูปภาพ</span>
+                            </ng-container>
+                        </div>
+                        <div class=""><i class="bi bi-camera fs-2" routerLink="/e-kyc/KycPage7"></i></div>
+                    </section>
+                    <!-- dots -->
+                    <div class="form__group d-flex my-4 justify-content-between mx-auto w-25">
+                        <div class="form__line"></div>
+                        <div class="form__line"></div>
+                        <div class="form__line"></div>
+                        <div class="form__line"></div>
+                    </div>
+
+                    <div class="button-group">
+                        <button class="btn btn-outline-primary btn-lg w-100" routerLink="/">กลับ</button>
+                        <button class="btn btn-primary btn-lg w-100" [disabled]="!isMatching" (click)="onNextPage()">ถัดไป</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 order-1 order-sm-2 pe-md-0">
+                <div class="personal-information__right d-flex justify-content-end">
+                    <div class="progress-bars d-flex align-items-center p-3 shadow rounded">
+                        <div class="progress-bar__left">
+                            <img src="../../../../../assets/images/card-logo.svg" alt="">
+                        </div>
+
+                        <div class="progress-bar__right">
+                            <p class="m-0" style="font-size: 14px; color: #888EA5;">การดำเนินการยืนยันตัวตนทั้งหมดของคุณ</p>
+                            <p class="m-0" style="font-size: 18px; color: #363E59;;">ดำเนินการแล้ว 60%</p>
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,105 @@
+@import "../../../../../assets/scss/color";
+@import "../../../../../assets/scss/responesive";
+
+
+.form-normal {
+
+  &__text-header {
+    color: var(--text-body);
+
+    @include responesive(md) {
+      // font-size: 24px !important;
+    }
+  }
+
+  &__text-title {
+    color: var(--text-helper);
+    font-family: "PromptThin";
+    font-size: 14px;
+  }
+}
+
+
+.form {
+
+
+  &__group {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: .5rem;
+    
+    @include responesive(md) {
+      margin-bottom: 1.5rem;
+      
+    }
+  }
+
+  &__input-wrap {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #A3AABF;
+    overflow: hidden;
+    position: relative;
+    padding: 2px;
+
+    @include responesive(md) {
+      padding: 10px;
+    }
+  }
+
+  &__control {
+    width: 100%;
+    padding: 5px 5px;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: #888EA5;
+    }
+  }
+
+}
+
+#password-wrap {
+
+}
+
+#eye-icon {
+  // background: red;
+  // width: 15px;
+  // height: 15px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--text-helper);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-primary {
+  background: #134A89 !important;
+
+  &:hover {
+    background: #084387 !important;
+  }
+}
+
+#mobile-wrap {
+  display: flex;
+
+  select {
+    border: none;
+  }
+  
+}
+
+#type-bussiness {
+  color: var(--text-body);
+
+}

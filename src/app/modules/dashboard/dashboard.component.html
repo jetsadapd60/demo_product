@@ -1,0 +1,25 @@
+<div class="dashboard">
+
+  <!-- บน -->
+  <div class="dashboard__top">
+    <app-dashboard-top></app-dashboard-top>
+  </div>
+
+  <div class="dashboard__layout">
+
+    <!-- ซ้าย -->
+    <div class="dashboard__side">
+      <app-dashboard-side></app-dashboard-side>
+    </div>
+
+    <!-- ขวา -->
+    <div class="dashboard__main rounded">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-custom-account></app-custom-account>

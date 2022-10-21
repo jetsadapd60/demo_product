@@ -1,0 +1,97 @@
+<div class="home p-5 rounded-3 vh-100 overflow-hidden">
+    <div class="container d-flex flex-column">
+
+      <!-- Profiel Detail -->
+        <section class="profile-detail">
+            <div class="row">
+                <div class="d-flex justify-content-between">
+
+                    <div class="p-2 d-flex">
+                        <div class="profile-detail__left me-4 d-flex align-items-center">
+                            <div class="profile-detail__image">
+                                <img src="../../../../../assets/images/user-image.webp"  alt="">
+                            </div>
+                        </div>
+    
+                        <div class="profile-detail__right d-flex flex-column justify-content-center">
+                            <div class="profile-detail__top">
+                                <p class="m-0 profile-detail__wellcom">สวัสดี,</p>
+                            </div>
+                            <div class="profile-detail__bottom d-flex align-items-center">
+                                <h3 class="profile-detail__mail mb-0 pe-3">{{ email }}</h3>
+                                <button class="btn btn-primary profile-detail__btn" [ngClass]="{'kyc-complete': statusAccount == 'Y'}">{{ statusAccount == 'Y' ? 'ยืนยันตัวตนแล้ว': 'ยังไม่ยืนยันตัวตน' }}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="d-flex align-items-center" *ngIf="statusAccount !== 'N'">
+                        <li class="px-3 border-end"><img class="pe-2" src="../../../../../assets/images/money-simple-from-bracket.svg" alt=""> <span>เครดิต</span></li>
+                        <li class="px-3 border-end"><img class="pe-2" src="../../../../../assets/images/coins.svg" alt=""> <span>เคลียริ่ง</span></li>
+                        <li class="px-3 border-end"><img class="pe-2" src="../../../../../assets/images/hand-holding-dollar.svg" alt=""> <span>เลขที่คำสั่ง</span></li>
+                        <li class="px-3 "><img src="../../../../../assets/images/Phone (1).svg" alt=""> <span>ช่วยเหลือ</span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Verify container -->
+        <section class="verify border rounded bg-light p-3 mb-3"  *ngIf="statusAccount == 'N' ">
+
+            <h5 class="mb-4">สร้างบัญชีต่อให้สมบูรณ์</h5>
+
+            <div class="verify__box">
+                <div class="verify__top d-flex justify-content-between mb-2">
+                    <div class="verify__left d-flex align-items-center">
+                        <img src="../../../../../assets/images/verify-icon.svg" width="28" class="me-2" alt="">
+                        <p class="m-0" style="font-size: 1rem; color: #363E59;">ยืนยันตัวตน</p>
+                    </div>
+                    <div class="verify__right">
+                        <button class="btn btn-outline-primary" [disabled]="statusKYC == 'W'" (click)="eKycVerify()" *ngIf="memberType === 'P' ">{{ statusKYC == "W" ? "รอการอนุมัติ":"ดำเนินการ" }}</button>
+                        <button class="btn btn-outline-primary" *ngIf="memberType === 'C' ">รอดำเนินการ</button>
+                    </div>
+                </div>
+                <div class="verify__button">
+                    <p class="m-0" style="font-size: .8rem; color: #888EA5;">รายละเอียดการกรอกข้อมูลทั่วไปโดยระบบจะให้สแกนบัตร ประชาชนและใบหน้า</p>
+                </div>
+            </div>
+
+            <!-- Line -->
+            <hr> 
+
+
+            <div class="verify__box">
+                <div class="verify__top d-flex justify-content-between mb-2">
+                    <div class="verify__left d-flex align-items-center">
+                        <img src="../../../../../assets/images/verify-icon.svg" width="28" class="me-2" alt="">
+                        <p class="m-0" style="font-size: 1rem; color: #363E59;">สินทรัพย์และการเงิน</p>
+                    </div>
+                    <div class="verify__right">
+                        <button class="btn btn-outline-primary" [disabled]="statusBankAccount == 'W'" (click)="bankAccountVerify()" *ngIf="memberType === 'P' ">{{ statusBankAccount == "W" ? "รอการอนุมัติ":"ดำเนินการ" }}</button>
+                        <button class="btn btn-outline-primary" *ngIf="memberType === 'C' ">รอดำเนินการ</button>
+                    </div>
+                </div>
+                <div class="verify__button">
+                    <p class="m-0" style="font-size: .8rem; color: #888EA5;">อัพโหลดไฟล์ธนาคารที่ท่านต้องการใช้ทำธุรกรรมประเภท ออมทรัพย</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- graph -->
+        <!-- <main class="bg-light rounded">
+
+            <div class="row" style="gap: 4;">
+
+                <div class="col-6 border">
+
+                </div>
+                <div class="col-6 border">right</div>
+
+            </div>
+
+        </main> -->
+
+
+  </div>
+</div>
